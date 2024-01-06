@@ -32,6 +32,7 @@ function generateImage() {
     })
     .catch((error) => {
       // Handle network errors or other issues
+      alert(error);
       console.error("Network error:", error);
       // Display a network error message to the user
     });
