@@ -26,6 +26,7 @@ function generateImage() {
         resetTimer();
       } else {
         // Handle errors gracefully (e.g., display error message)
+        alert(data.error);
         console.error("API error:", data.error);
         // Display an error message to the user
       }
