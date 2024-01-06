@@ -1,7 +1,7 @@
 <?php
 
 // Define sensitive constants outside of web root
-define("API_KEY", "AIzaSyAsiCAzg5jxOADEnXu33bLCpi6O0ILWJHE"); // Replace with your actual API key
+define("API_KEY", "API KEY HERE"); // Replace with your actual API key
 define("BASE_URL", "https://api.gemini.com"); // Base URL for API calls
 
 // Error reporting (adjust as needed)
