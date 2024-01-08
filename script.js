@@ -1,66 +1,77 @@
-// Select necessary HTML elements (adjust selectors as needed)
-const promptInput = document.querySelector(".prompt-section input");
-const generateButton = document.querySelector(".prompt-section button");
-const generatedImage = document.querySelector(".generated-image img");
-const progressBar = document.querySelector(".progress-bar"); // If applicable
+document.addEventListener('DOMContentLoaded', function () {
+    const imageContainer = document.getElementById('imageContainer');
+    const loader = document.getElementById('loader');
 
-// Function to handle image generation and display
-function generateImage() {
-  // Get the user's prompt
-  const prompt = promptInput.value;
+    async function generateImage() {
+        showLoader();
+        const textInput = document.getElementById('textInput').value;
+        const apiKey = 'Py-figlet';
+        const apiUrl = `https://sketchuppro.ir/api/api/generate.php?text=${encodeURIComponent(textInput)}&key=${apiKey}`;
 
-  // Send prompt to server-side script for secure API interaction
-  fetch("/generate-image", {
-    method: "POST",
-    body: JSON.stringify({ prompt }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Handle API response and display generated image
-      if (data.success) {
-        generatedImage.src = data.imageUrl; // Update image source
+        try {
+            const response = await fetch(apiUrl);
+            const jsonResult = await response.json();
 
-        // If applicable, display a success message or animation
+            if (jsonResult.length > 0) {
+                const images = jsonResult.map(item => item.result);
 
-        // Reset wait timer
-        resetTimer();
-      } else {
-        // Handle errors gracefully (e.g., display error message)
-        alert(data.error);
-        console.error("API error:", data.error);
-        // Display an error message to the user
-      }
-    })
-    .catch((error) => {
-      // Handle network errors or other issues
-      alert(error);
-      console.error("Network error:", error);
-      // Display a network error message to the user
+                // Display images in the gallery
+                displayGallery(images);
+            } else {
+                console.error('No image URLs found in the API response.');
+            }
+        } catch (error) {
+            console.error('Error generating images:', error);
+        } finally {
+            hideLoader();
+        }
+    }
+
+    function displayGallery(images) {
+        imageContainer.innerHTML = '';
+
+        images.forEach((imageUrl, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.alt = `Generated Image ${index + 1}`;
+            imgElement.addEventListener('load', () => imageLoaded(imgElement));
+
+            imageContainer.appendChild(imgElement);
+        });
+    }
+
+    function showLoader() {
+        loader.style.display = 'block';
+    }
+
+    function hideLoader() {
+        loader.style.display = 'none';
+    }
+
+    function imageLoaded(imgElement) {
+        imgElement.style.animation = 'fade-in 0.5s ease-out';
+    }
+
+    lightGallery(document.getElementById('imageContainer'), {
+        dynamic: true,
+        download: false,
+        toggleThumb: true,
+        mode: 'lg-fade',
+        backdropDuration: 500,
     });
-}
-
-// Function to enforce 60-second wait time
-function enforceWait() {
-  // Disable button and show progress bar
-  generateButton.disabled = true;
-  progressBar.classList.add("active"); // If applicable
-
-  // Start timer for 60 seconds
-  const timer = setTimeout(() => {
-    resetTimer();
-  }, 60000);
-}
-
-// Function to reset timer and enable button
-function resetTimer() {
-  // Clear timeout, enable button, hide progress bar
-  clearTimeout(timer);
-  generateButton.disabled = false;
-  progressBar.classList.remove("active"); // If applicable
-}
-
-// Event listeners
-generateButton.addEventListener("click", () => {
-  generateImage();
-  enforceWait(); // Enforce wait time after each generation
 });
+
+// Added functions for the Credits modal
+function showCreditsModal() {
+    const modal = document.getElementById('creditsModal');
+    modal.style.display = 'flex';
+    modal.style.animation = 'modalFadeIn 0.5s ease-out';
+}
+
+function closeCreditsModal() {
+    const modal = document.getElementById('creditsModal');
+    modal.style.animation = 'modalFadeIn 0.5s ease-out reverse';
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 500);
+}
