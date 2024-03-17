@@ -3,34 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerboVisions - Image Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lg-thumbnail.min.css">
-    <title>VerboVisions</title>
 </head>
 <body>
-    <div class="gradient-bg">
-        <label for="textInput">Enter your text:</label>
-        <input type="text" id="textInput" placeholder="Type your text here">
-        <button onclick="generateImage()">Generate Image</button>
-        <button onclick="showCreditsModal()">Credits</button>
-
-        <div id="imageContainer" class="image-container"></div>
-    </div>
-
-    <div id="creditsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeCreditsModal()">&times;</span>
-            <h2>Credits</h2>
-            <p>Backend: Py Figlet</p>
-            <p>Frontend: Prakhar Doneria</p>
+    <div class="container">
+        <h1 class="title">VerboVisions</h1>
+        <div class="form-container">
+            <div class="form-row">
+                <label for="promptInput">Enter Prompt:</label>
+                <input type="text" id="promptInput" placeholder="e.g., cat" required>
+            </div>
+            <div class="form-row">
+                <label for="sizeInput">Size:</label>
+                <div id="sizeInput">
+                    <input type="radio" id="size1" name="size" value="512x512" checked>
+                    <label for="size1">512x512</label>
+                    <input type="radio" id="size2" name="size" value="1024x1024">
+                    <label for="size2">1024x1024</label>
+                    <input type="radio" id="size3" name="size" value="640x384">
+                    <label for="size3">640x384</label>
+                    <input type="radio" id="size4" name="size" value="384x640">
+                    <label for="size4">384x640</label>
+                    <input type="radio" id="size5" name="size" value="768x512">
+                    <label for="size5">768x512</label>
+                    <input type="radio" id="size6" name="size" value="512x768">
+                    <label for="size6">512x768</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <label for="scaleInput">Scale:</label>
+                <input type="number" id="scaleInput" step="0.1" min="0.1" max="20" value="5.0" required>
+            </div>
+            <button id="generateButton">Generate Image</button>
+            <div id="countdownTimer" class="countdown-timer"></div>
         </div>
     </div>
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="" alt="Generated Image" id="modalImage">
+        </div>
+    </div>
+    <div id="error" class="error"></div>
+  <div id="apiKeyModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Enter API Key</h2>
+          <p>If you don't have an API key yet, you can subscribe to the VerboVisions API <a href="https://rapidapi.com/yashdoneria/api/visionary1" target="_blank">here</a>.</p>
+          <form id="apiKeyForm">
+              <input type="text" id="apiKeyInput" placeholder="Enter your API key" required>
 
-    <div class="loader" id="loader"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lg-thumbnail.min.js"></script>
+            
+              <button type="submit">Submit</button>
+          </form>
+      </div>
+  </div>
+
     <script src="script.js"></script>
 </body>
 </html>
