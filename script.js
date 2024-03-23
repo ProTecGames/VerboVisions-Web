@@ -102,6 +102,7 @@ function generateImage() {
 
 function displayImage(imageUrl) {
     const modal = document.getElementById('myModal');
+    const modalContent = document.querySelector('.modal-content');
     const modalImage = document.getElementById('modalImage');
 
     modal.style.display = 'block';
@@ -110,6 +111,23 @@ function displayImage(imageUrl) {
     const span = document.getElementsByClassName('close')[0];
     span.onclick = function() {
         modal.style.display = 'none';
+    }
+
+    const modalWidth = modalContent.offsetWidth;
+    const modalHeight = modalContent.offsetHeight;
+    const maxWidth = modalWidth * 0.8;
+    const maxHeight = modalHeight * 0.8;
+
+    const aspectRatio = modalImage.naturalWidth / modalImage.naturalHeight;
+
+    if (modalImage.naturalWidth > maxWidth || modalImage.naturalHeight > maxHeight) {
+        if (modalImage.naturalWidth / maxWidth > modalImage.naturalHeight / maxHeight) {
+            modalImage.width = maxWidth;
+            modalImage.height = maxWidth / aspectRatio;
+        } else {
+            modalImage.height = maxHeight;
+            modalImage.width = maxHeight * aspectRatio;
+        }
     }
 }
 
