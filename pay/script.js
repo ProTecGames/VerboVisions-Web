@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
           return actions.order.create({
               purchase_units: [{
                   amount: {
-                      value: '10'
+                      value: '5'
                   },
                   description: 'VerboVisions -  Payment'
               }]
