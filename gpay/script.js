@@ -68,7 +68,7 @@ async function processPayment(paymentData) {
         if (response.ok) {
             const data = await response.text();
             console.log('Server response:', data);
-            window.location.href = '/success';
+            //window.location.href = '/success';
         } else {
             alert('Failed to send payment result to server');
         }
