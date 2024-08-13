@@ -1,5 +1,5 @@
 .apply-btn {
-    background-color: #4f46e5;
+    background-color: #f97316; /* Orange color */
     padding: 15px 30px;
     color: white;
     font-size: 1.25rem;
@@ -9,11 +9,11 @@
 }
 
 .apply-btn:hover {
-    background-color: #3730a3;
+    background-color: #c2410c; /* Darker orange */
 }
 
 .card {
-    background-color: #1e3a8a;
+    background-color: #4f46e5; /* Violet color */
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
