@@ -1,67 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VerboVisions - Image Generator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+    <title>Join Our Affiliate Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="VerboVisions - Join Our Affiliate Program">
+    <meta property="og:description" content="Earn Up to ₹500 Per Sign-Up by Promoting Our Services!">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ProTecGames/VerboVisions-Web/main/assets/preview.png">
+    <meta property="og:url" content="https://verbo-visions-web.vercel.app/affiliate/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Join Our Affiliate Program">
+    <meta name="twitter:description" content="Earn Up to ₹500 Per Sign-Up by Promoting Our Services!">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/ProTecGames/VerboVisions-Web/main/assets/preview.png">
+    <meta name="twitter:url" content="https://verbo-visions-web.vercel.app/affiliate/">
 </head>
-<body>
-    <div class="container">
-        <h1 class="title">VerboVisions</h1>
-        <div class="form-container">
-            <div class="form-row">
-                <label for="promptInput">Enter Prompt:</label>
-                <input type="text" id="promptInput" placeholder="e.g., cat" required>
+
+<body class="bg-gradient-to-r from-purple-500 via-orange-500 to-green-500 text-white font-roboto">
+
+    <header class="flex justify-center items-center p-6">
+        <div class="text-3xl font-poppins font-bold">VerboVisions</div>
+    </header>
+
+    <main class="text-center py-20 px-4">
+        <h1 class="text-5xl font-poppins font-extrabold mb-4">Join Our Affiliate Marketing Program</h1>
+        <p class="text-xl mb-8">Earn Up to ₹500 Per Sign-Up by Promoting Our Services!</p>
+        <a href="https://forms.gle/CFzzgyLv1Sv3pHAN6" class="apply-btn" target="blank">Apply Now</a>
+    </main>
+
+    <section class="container mx-auto py-16 px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-poppins font-bold mb-4">Why Join Us?</h2>
+                <p class="text-lg mb-4">Earn ₹500 for every premium sign-up you generate using your unique coupon code.</p>
+                <p class="text-lg mb-4">Get paid directly at the end of each month.</p>
+                <p class="text-lg">Receive payments via PayPal or UPI, hassle-free.</p>
             </div>
-            <div class="form-row">
-                <label for="sizeInput">Size:</label>
-                <div id="sizeInput">
-                    <input type="radio" id="size1" name="size" value="512x512" checked>
-                    <label for="size1">512x512</label>
-                    <input type="radio" id="size2" name="size" value="1024x1024">
-                    <label for="size2">1024x1024</label>
-                    <input type="radio" id="size3" name="size" value="640x384">
-                    <label for="size3">640x384</label>
-                    <input type="radio" id="size4" name="size" value="384x640">
-                    <label for="size4">384x640</label>
-                    <input type="radio" id="size5" name="size" value="768x512">
-                    <label for="size5">768x512</label>
-                    <input type="radio" id="size6" name="size" value="512x768">
-                    <label for="size6">512x768</label>
+            <div>
+                <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Happy Influencer" class="rounded-lg shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto py-16 px-8 bg-violet-700 rounded-lg">
+        <h2 class="text-4xl font-poppins font-bold text-center mb-8">How It Works</h2>
+        <div class="flex flex-col md:flex-row justify-around items-center gap-8">
+            <div class="card">
+                <div class="icon-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9068/9068295.png" alt="Followers" class="w-20 h-20 mb-4">
                 </div>
+                <h3 class="text-xl font-poppins font-semibold mb-2">Have 2,000+ Followers</h3>
+                <p class="text-lg text-center">Make sure you have at least 2,000 followers on any of your social media platforms.</p>
             </div>
-            <div class="form-row">
-                <label for="scaleInput">Scale:</label>
-                <input type="number" id="scaleInput" step="0.1" min="0.1" max="20" value="5.0" required>
+            <div class="card">
+                <div class="icon-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9068/9068331.png" alt="Payment" class="w-20 h-20 mb-4">
+                </div>
+                <h3 class="text-xl font-poppins font-semibold mb-2">Accept Payments</h3>
+                <p class="text-lg text-center">Ensure you can receive payments via PayPal or UPI.</p>
             </div>
-            <button id="generateButton">Generate Image</button>
-            <div id="countdownTimer" class="countdown-timer"></div>
+            <div class="card">
+                <div class="icon-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9068/9068301.png" alt="Apply" class="w-20 h-20 mb-4">
+                </div>
+                <h3 class="text-xl font-poppins font-semibold mb-2">Apply & Get Started</h3>
+                <p class="text-lg text-center">Apply now and start earning by promoting our services.</p>
+            </div>
         </div>
-    </div>
-    <div class="modal" id="myModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img src="" alt="Generated Image" id="modalImage">
+        <div class="text-center mt-8">
+            <a href="https://forms.gle/CFzzgyLv1Sv3pHAN6" class="apply-btn" target="blank">Apply Now</a>
         </div>
-    </div>
-    <div id="error" class="error"></div>
-  <div id="apiKeyModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Enter API Key</h2>
-          <p>If you don't have an API key yet, you can subscribe to the VerboVisions API <a href="https://rapidapi.com/yashdoneria/api/visionary1" target="_blank">here</a>.</p>
-          <form id="apiKeyForm">
-              <input type="text" id="apiKeyInput" placeholder="Enter your API key" required>
+    </section>
 
-
-            
-              <button type="submit">Submit</button>
-          </form>
-      </div>
-  </div>
+    <footer class="text-center py-8">
+        <p>&copy; 2024 ProTec Games. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
