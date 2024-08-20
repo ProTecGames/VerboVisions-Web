@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.plan {
+    border: 2px solid #007BFF;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    background-color: #e9f5ff;
+}
+
+.plan h2 {
+    margin-top: 0;
+    color: #007BFF;
+}
+
+.plan p, .plan ul {
+    margin: 10px 0;
+}
+
+.notice {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #777;
+}
